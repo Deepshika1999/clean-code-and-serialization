@@ -1,0 +1,70 @@
+package calculator;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.io.PrintStream;
+
+public class Solution extends Cost{
+
+	public static void main(String []args)throws IOException
+	{
+		Scanner sc=new Scanner(System.in);
+		PrintStream myOutput=new PrintStream(new FileOutputStream(FileDescriptor.out));
+		myOutput.print("Enter the area:\n");
+		int area=sc.nextInt();
+		myOutput.print("Enter the material Type:\n(1.StandardMaterial 2.AboveStandardMaterial 3.HighStandardMaterial 4.HighStandardMaterialsAndFullyAutomatedHouse)\n");
+		String materialtype=sc.next();
+		Cost c=new Cost();
+		if(materialtype.equals("StandardMaterial"))
+		{
+			c.StandardMaterial(area);
+		}
+			else if(materialtype.equals("AboveStandardMaterial"))
+			{
+				c.AboveStandardMaterial(area);
+			}
+			else if(materialtype.equals("HighStandardMaterial"))
+			{
+				c.HighStandardMaterial(area);
+			}
+			else if(materialtype.equals("HighStandardMaterialsAndFullyAutomatedHouse"))
+			{
+				c.HighStandardMaterialsAndFullyAutomatedHouse(area);
+			}
+		
+	}
+}
+package calculator;
+
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+public class Cost 
+{
+	PrintStream myOutput=new PrintStream(new FileOutputStream(FileDescriptor.out));
+	int cost=0;
+	public void StandardMaterial(int area)
+	{
+		cost=area*1200;
+		myOutput.print("Total Constuction Cost:"+cost);
+	}
+	public void AboveStandardMaterial(int area)
+	{
+		cost=area*1500;
+		myOutput.print("Total Constuction Cost:"+cost);
+	}
+	public void HighStandardMaterial(int area)
+	{
+		cost=area*1800;
+		myOutput.print("Total Constuction Cost:"+cost);
+	}
+	public void HighStandardMaterialsAndFullyAutomatedHouse(int area)
+	{
+		cost=area*2500;
+		myOutput.print("Total Constuction Cost:"+cost);
+	}
+	
+}
