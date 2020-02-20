@@ -1,0 +1,28 @@
+package calculator;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.io.PrintStream;
+public class Simple {
+
+	public static void main(String[]args)
+	{
+		Scanner sc=new Scanner(System.in);
+		PrintStream myOutput=new PrintStream(new FileOutputStream(FileDescriptor.out));
+		myOutput.print("Enter the Initial principal balance\n");
+		int principalbalance=sc.nextInt();
+		myOutput.print("Enter the annual interest rate\n");
+		int interestrate=sc.nextInt();
+		myOutput.print("Enter the time in years\n");
+		int Time=sc.nextInt();
+		myOutput.print("Enter the no. of times interest applied per time period:\n");
+		int numberoftimes=sc.nextInt();
+		int ans=principalbalance*(1+interestrate*Time);
+		myOutput.print("Simple Interest:"+ans);
+		int ans1=principalbalance*(1+interestrate/numberoftimes)*numberoftimes*Time;
+		myOutput.print("\nCompound Interest:"+ans1);
+	}
+}
